@@ -436,7 +436,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.6rem;
   width: 100%;
 }
@@ -452,6 +452,8 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.15s ease;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .nav-button:hover:not(:disabled) {
@@ -465,8 +467,26 @@ body {
 
 .nav-label {
   flex: 1 1 auto;
-  min-width: 12rem;
+  min-width: 0;
   text-align: center;
   color: var(--text-muted);
   font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .nav-controls {
+    gap: 0.25rem;
+  }
+
+  .nav-button {
+    padding: 0.4rem 0.45rem;
+    font-size: 0.7rem;
+  }
+
+  .nav-label {
+    font-size: 0.72rem;
+  }
 }
