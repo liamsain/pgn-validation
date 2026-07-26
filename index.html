@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PGN Validator</title>
+  </head>
+  <body>
+    <div id="app">
+      <main class="page">
+        <header class="page-header">
+          <h1>PGN Validator</h1>
+          <p class="subtitle">Paste a PGN, check it, fix what's flagged, repeat.</p>
+        </header>
+
+        <form id="pgn-form" class="pgn-form" novalidate>
+          <div class="editor" id="editor">
+            <div class="editor-highlights" id="editor-highlights" aria-hidden="true"></div>
+            <textarea
+              id="pgn-input"
+              class="editor-input"
+              spellcheck="false"
+              autocomplete="off"
+              autocapitalize="off"
+              placeholder="[Event &quot;Casual Game&quot;]&#10;[White &quot;Player A&quot;]&#10;[Black &quot;Player B&quot;]&#10;&#10;1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 ..."
+            ></textarea>
+            <button type="button" id="copy-button" class="copy-button">Copy</button>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-button">Check PGN</button>
+            <span class="hint">or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd></span>
+          </div>
+        </form>
+
+        <section id="result-panel" class="result-panel" aria-live="polite"></section>
+
+        <section id="board-panel" class="board-panel" hidden>
+          <div id="board-mount"></div>
+          <div id="nav-mount"></div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
